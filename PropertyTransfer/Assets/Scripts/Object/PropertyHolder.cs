@@ -4,9 +4,11 @@ using System.Collections.Generic;
 /// <summary>
 /// 사물이 현재 가지고 있는 특성을 관리한다
 /// </summary>
-public class PropertyHolder
+public class PropertyHolder : MonoBehaviour
 {
     [SerializeField] private PropertyData[] properties = null;
+
+    public PropertyData[] Properties => properties;
 
     private Dictionary<PropertyType, PropertyData> propertyDictionary = new Dictionary<PropertyType, PropertyData>();
 
@@ -18,6 +20,7 @@ public class PropertyHolder
         {
             propertyDictionary[property.PropertyType] = property;
             UpdateDict(property);
+            physicsPropertyApplier.ApplyProperty(property);
         }
     }
 
@@ -33,11 +36,17 @@ public class PropertyHolder
         }
     }
 
-    public PropertyData[] Properties => properties;
 
     public void SetProperties(PropertyData[] newProperties)
     {
         properties = newProperties;
+        propertyDictionary.Clear();
+        foreach (var property in properties)
+        {
+            propertyDictionary[property.PropertyType] = property;
+            UpdateDict(property);
+            physicsPropertyApplier.ApplyProperty(property);
+        }
     }
 
     public PropertyData GetProperty(PropertyType propertyType)
@@ -57,11 +66,13 @@ public class PropertyHolder
         if (propertyDictionary.TryGetValue(newProperty.PropertyType, out var existingProperty))
         {
             propertyDictionary[newProperty.PropertyType] = newProperty;
+            physicsPropertyApplier.ApplyProperty(newProperty);
             return existingProperty;
         }
         else
         {
             propertyDictionary.Add(newProperty.PropertyType, newProperty);
+            physicsPropertyApplier.ApplyProperty(newProperty);
             return null;
         }
     }

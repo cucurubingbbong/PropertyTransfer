@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class PropertyData
 {
     [SerializeField] private string propertyName = string.Empty;
