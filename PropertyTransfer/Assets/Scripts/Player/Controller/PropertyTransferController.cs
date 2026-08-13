@@ -29,6 +29,11 @@ public class PropertyTransferController : MonoBehaviour
     [SerializeField] private LayerMask propertyLayerMask = 1 << 6;
     [SerializeField] private float maxRayDistance = 20f;
 
+    /// <summary>
+    /// UI스크린 오브젝트
+    /// </summary>
+    [SerializeField] private PropertyUI propertyUI = null;
+
     private Camera mainCamera;
 
     private void Awake()
