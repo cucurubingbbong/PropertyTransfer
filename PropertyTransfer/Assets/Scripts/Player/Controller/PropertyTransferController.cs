@@ -137,7 +137,7 @@ public class PropertyTransferController : MonoBehaviour
                 Debug.Log("추출 특성 선택 UI");
 
                 PropertyUIData[] uiData = CreatePropertyUIData();
-
+                
                 propertyUI.SetCard(uiData);
                 // 연출 넣으면 좋을거같긴하네요
                 UIManager.Instance.Show("Property");
@@ -163,11 +163,31 @@ public class PropertyTransferController : MonoBehaviour
     /// <summary>
     /// UI에서 선택한 특성을 설정한다.
     /// </summary>
-    public void SelectProperty(PropertyData propertyData)
+    public void SelectProperty(int index)
     {
-        if (currentState != TransferState.SelectingProperty || propertyData == null) return;
+        if (currentState != TransferState.SelectingProperty)
+            return;
 
-        selectedPropertyData = propertyData;
+        switch (currentTransferType)
+        {
+            case TransferType.Extract:
+                if (index < 0 || index >= currentPropertyHolder.Properties.Length)
+                    return;
+
+                selectedPropertyData = currentPropertyHolder.Properties[index];
+                break;
+
+            case TransferType.Grant:
+                if (index < 0 || index >= gunPropertyData.Length)
+                    return;
+
+                selectedPropertyData = gunPropertyData[index];
+                break;
+        }
+
+        if (selectedPropertyData == null)
+            return;
+
         currentState = TransferState.Processing;
     }
 

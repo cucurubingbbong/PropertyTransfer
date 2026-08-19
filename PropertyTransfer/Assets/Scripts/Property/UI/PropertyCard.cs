@@ -21,13 +21,15 @@ public struct PropertyUIData
 }
 public class PropertyCard : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI propertyName = null;
+    [SerializeField] private TextMeshProUGUI propertyName = null;
 
-    [SerializeField] TextMeshProUGUI propertyDes = null;
+    [SerializeField] private TextMeshProUGUI propertyDes = null;
 
-    [SerializeField] Image propertyIcon = null;
+    [SerializeField] private Image propertyIcon = null;
 
-    [SerializeField] Slider stepSlider = null;
+    [SerializeField] private Slider stepSlider = null;
+
+    [SerializeField] private int index;
 
     public void SetElements(PropertyUIData Data)
     {
@@ -35,5 +37,15 @@ public class PropertyCard : MonoBehaviour
         propertyDes.text = Data.Des;
         propertyIcon.sprite = Data.Icon;
         stepSlider.value = Data.Step;
+    }
+
+    public void SetIndex(int value)
+    {
+        index = value;
+    }
+
+    public void OnClick()
+    {
+        FindFirstObjectByType<PropertyTransferController>().SelectProperty(index);
     }
 }

@@ -1,18 +1,7 @@
 using UnityEngine;
 
-/// <summary>
-/// 물리 특성의 단계
-/// </summary>
-public enum PropertyStatus
-{
-    None = -1,
-    Low,
-    Medium,
-    High
-}
-
-[System.Serializable]
-public class PropertyData
+[CreateAssetMenu(fileName = "OriginPropertyData", menuName = "Data/OriginPropertyData")]
+public class OriginPropertyData : ScriptableObject
 {
     [SerializeField] private string propertyName = string.Empty;
     public string PropertyName => propertyName;
@@ -34,15 +23,4 @@ public class PropertyData
 
     [SerializeField] private float value = 0f;
     public float Value => value;
-
-    public PropertyData(OriginPropertyData originData)
-    {
-        propertyName = originData.PropertyName;
-        propertyDescription = originData.PropertyDescription;
-        propertyIconPath = originData.PropertyIconPath;
-        propertyIcon = originData.PropertyIcon;
-        propertyType = originData.PropertyType;
-        isStatus = originData.IsStatus;
-        value = originData.Value;
-    }
 }
