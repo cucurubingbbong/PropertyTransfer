@@ -6,7 +6,7 @@ using System.Collections.Generic;
 /// </summary>
 public class PropertyHolder : MonoBehaviour
 {
-    [SerializeField] private PropertyData[] properties = null;
+    [SerializeField] private PropertyData[] properties =  new PropertyData[3];
 
     public PropertyData[] Properties => properties;
 

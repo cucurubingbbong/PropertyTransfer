@@ -1,5 +1,15 @@
 using UnityEngine;
 
+/// <summary>
+/// 물리 특성의 단계
+/// </summary>
+public enum PropertyStatus
+{
+    None = -1,
+    Low,
+    Medium,
+    High
+}
 [System.Serializable]
 public class PropertyData
 {
@@ -24,9 +34,9 @@ public class PropertyData
     /// false : 가벼움등등...
     /// enum으로 안한 이유는 귀차늠 나중에 내가 하겟지
     /// </summary>
-    [SerializeField] private bool isStatus = false;
+    [SerializeField] private PropertyStatus isStatus = PropertyStatus.None;
 
-    public bool IsStatus => isStatus;
+    public PropertyStatus IsStatus => isStatus;
 
     /// <summary>
     /// 물리유형의 값

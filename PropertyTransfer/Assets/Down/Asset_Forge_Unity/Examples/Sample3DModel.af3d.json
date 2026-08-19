@@ -1,0 +1,68 @@
+{
+  "modelName": "Sample Tower",
+  "parts": [
+    {
+      "id": "sample_base",
+      "name": "Base",
+      "primitiveType": 0,
+      "position": { "x": 0.0, "y": 0.25, "z": 0.0 },
+      "rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "scale": { "x": 3.0, "y": 0.5, "z": 3.0 },
+      "visible": true,
+      "locked": false,
+      "color": { "r": 0.18, "g": 0.22, "b": 0.30, "a": 1.0 },
+      "metallic": 0.05,
+      "smoothness": 0.42,
+      "emissionEnabled": false,
+      "emissionColor": { "r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0 }
+    },
+    {
+      "id": "sample_body",
+      "name": "Tower",
+      "primitiveType": 3,
+      "position": { "x": 0.0, "y": 1.5, "z": 0.0 },
+      "rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "scale": { "x": 1.25, "y": 1.25, "z": 1.25 },
+      "visible": true,
+      "locked": false,
+      "color": { "r": 0.32, "g": 0.48, "b": 0.78, "a": 1.0 },
+      "metallic": 0.15,
+      "smoothness": 0.5,
+      "emissionEnabled": false,
+      "emissionColor": { "r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0 }
+    },
+    {
+      "id": "sample_roof",
+      "name": "Roof",
+      "primitiveType": 5,
+      "position": { "x": 0.0, "y": 3.35, "z": 0.0 },
+      "rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "scale": { "x": 1.7, "y": 1.25, "z": 1.7 },
+      "visible": true,
+      "locked": false,
+      "color": { "r": 0.82, "g": 0.26, "b": 0.20, "a": 1.0 },
+      "metallic": 0.0,
+      "smoothness": 0.34,
+      "emissionEnabled": false,
+      "emissionColor": { "r": 0.0, "g": 0.0, "b": 0.0, "a": 1.0 }
+    }
+  ],
+  "camera": {
+    "orbit": { "x": 24.0, "y": -35.0 },
+    "pivot": { "x": 0.0, "y": 1.6, "z": 0.0 },
+    "distance": 8.0,
+    "orthographic": false,
+    "orthographicSize": 4.0,
+    "background": { "r": 0.105, "g": 0.11, "b": 0.125, "a": 1.0 }
+  },
+  "showGrid": true,
+  "positionSnapEnabled": false,
+  "positionSnap": 0.25,
+  "rotationSnapEnabled": true,
+  "rotationSnap": 15.0,
+  "scaleSnapEnabled": false,
+  "scaleSnap": 0.1,
+  "localHandle": false,
+  "pngWidth": 512,
+  "pngHeight": 512
+}

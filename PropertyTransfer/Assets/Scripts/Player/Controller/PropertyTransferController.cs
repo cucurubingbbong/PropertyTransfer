@@ -1,4 +1,6 @@
 using UnityEngine;
+using GameCore;
+using System.Linq;
 
 /// <summary>
 /// 플레이어의 특성 추출 / 부여를 관리한다.
@@ -131,9 +133,31 @@ public class PropertyTransferController : MonoBehaviour
     {
         switch (currentTransferType)
         {
-            case TransferType.Extract: Debug.Log("추출 특성 선택 UI"); break;
-            case TransferType.Grant: Debug.Log("부여 특성 선택 UI"); break;
+            case TransferType.Extract:
+                Debug.Log("추출 특성 선택 UI");
+
+                PropertyUIData[] uiData = CreatePropertyUIData();
+
+                propertyUI.SetCard(uiData);
+                // 연출 넣으면 좋을거같긴하네요
+                UIManager.Instance.Show("Property");
+                break;
+
+            case TransferType.Grant:
+                Debug.Log("부여 특성 선택 UI");
+                break;
         }
+    }
+
+    private PropertyUIData[] CreatePropertyUIData()
+    {
+        return currentPropertyHolder.Properties
+            .Select(property => new PropertyUIData(
+                property.PropertyName,
+                property.PropertyDescription,
+                property.PropertyIcon,
+                (int)property.IsStatus))
+            .ToArray();
     }
 
     /// <summary>
