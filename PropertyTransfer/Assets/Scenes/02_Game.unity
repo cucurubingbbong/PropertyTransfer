@@ -222,7 +222,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 188660825}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1538889432}
+        m_TargetAssemblyTypeName: PropertyUI, Assembly-CSharp
+        m_MethodName: SelectCard
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &188660825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,7 +451,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 231646159}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1538889432}
+        m_TargetAssemblyTypeName: PropertyUI, Assembly-CSharp
+        m_MethodName: SelectCard
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &231646159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   jumpPower: 20
+  canMove: 1
   rb: {fileID: 410382886}
 --- !u!54 &410382886
 Rigidbody:
@@ -888,7 +913,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &410382887
 MonoBehaviour:
@@ -905,6 +930,7 @@ MonoBehaviour:
   playerCamera: {fileID: 330585545}
   sensitivity: 200
   maxPov: {x: 55, y: 70}
+  canRotate: 1
 --- !u!136 &410382888
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -943,42 +969,7 @@ MonoBehaviour:
   currentTransferType: 0
   currentState: 0
   gunPropertyData:
-  - propertyName: 
-    propertyDescription: 
-    propertyIconPath: 
-    propertyIcon: {fileID: 0}
-    propertyType: 0
-    isStatus: 0
-    value: 0
-  - propertyName: 
-    propertyDescription: 
-    propertyIconPath: 
-    propertyIcon: {fileID: 0}
-    propertyType: 0
-    isStatus: 0
-    value: 0
-  - propertyName: 
-    propertyDescription: 
-    propertyIconPath: 
-    propertyIcon: {fileID: 0}
-    propertyType: 0
-    isStatus: 0
-    value: 0
-  - propertyName: 
-    propertyDescription: 
-    propertyIconPath: 
-    propertyIcon: {fileID: 0}
-    propertyType: 0
-    isStatus: 0
-    value: 0
-  - propertyName: 
-    propertyDescription: 
-    propertyIconPath: 
-    propertyIcon: {fileID: 0}
-    propertyType: 0
-    isStatus: 0
-    value: 0
-  - propertyName: 
+    propertyName: 
     propertyDescription: 
     propertyIconPath: 
     propertyIcon: {fileID: 0}
@@ -1197,7 +1188,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e0100c17d383d498ccfde11820d603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  properties: []
+  originProperties:
+  - {fileID: 11400000, guid: ef74d6d5bb56d2f4caa64801653f8f7e, type: 2}
+  - {fileID: 11400000, guid: b895f443389daa948bc5bf862830a419, type: 2}
+  - {fileID: 11400000, guid: 12114622b5981804891169fc749ec05c, type: 2}
+  properties:
+  - propertyName: 
+    propertyDescription: 
+    propertyIconPath: 
+    propertyIcon: {fileID: 0}
+    propertyType: 0
+    isStatus: 0
+    value: 0
+  - propertyName: 
+    propertyDescription: 
+    propertyIconPath: 
+    propertyIcon: {fileID: 0}
+    propertyType: 0
+    isStatus: 0
+    value: 0
+  - propertyName: 
+    propertyDescription: 
+    propertyIconPath: 
+    propertyIcon: {fileID: 0}
+    propertyType: 0
+    isStatus: 0
+    value: 0
   physicsPropertyApplier: {fileID: 571154237}
 --- !u!114 &571154237
 MonoBehaviour:
@@ -1214,6 +1230,7 @@ MonoBehaviour:
   originPhysicsMaterial: {fileID: 13400000, guid: 30a3d2fe7bddf6c4b811c694da677dca, type: 2}
   physicsMaterial: {fileID: 0}
   rigidBody: {fileID: 571154238}
+  targetCollider: {fileID: 0}
 --- !u!54 &571154238
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2795,7 +2812,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 457382621}
   m_HandleRect: {fileID: 0}
@@ -3048,7 +3065,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONFIRM
+  m_text: CANCEL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd82fe2d42ea02148bf671e20ddd5e25, type: 2}
   m_sharedMaterial: {fileID: 5267644671716124464, guid: dd82fe2d42ea02148bf671e20ddd5e25, type: 2}
@@ -3267,7 +3284,11 @@ MonoBehaviour:
   - {fileID: 1923619073}
   - {fileID: 231646157}
   - {fileID: 188660823}
+  confirmBtn: {fileID: 2038539158}
+  cancelBtn: {fileID: 1715907251}
+  selectIndex: 0
   currentUIOpenType: 0
+  Ptc: {fileID: 410382889}
 --- !u!1 &1575995248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3381,7 +3402,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1054440105}
   m_HandleRect: {fileID: 0}
@@ -3885,7 +3906,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1715907252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1538889432}
+        m_TargetAssemblyTypeName: PropertyUI, Assembly-CSharp
+        m_MethodName: Cancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1715907252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4121,7 +4154,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1923619071}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1538889432}
+        m_TargetAssemblyTypeName: PropertyUI, Assembly-CSharp
+        m_MethodName: SelectCard
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1923619071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4254,7 +4299,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1136461475}
   m_HandleRect: {fileID: 0}
@@ -4456,7 +4501,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2038539159}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1538889432}
+        m_TargetAssemblyTypeName: PropertyUI, Assembly-CSharp
+        m_MethodName: Confirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2038539159
 MonoBehaviour:
   m_ObjectHideFlags: 0

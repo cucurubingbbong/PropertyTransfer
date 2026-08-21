@@ -29,7 +29,7 @@ public class PropertyCard : MonoBehaviour
 
     [SerializeField] private Slider stepSlider = null;
 
-    [SerializeField] private int index;
+    public int index;
 
     public void SetElements(PropertyUIData Data)
     {
@@ -42,10 +42,5 @@ public class PropertyCard : MonoBehaviour
     public void SetIndex(int value)
     {
         index = value;
-    }
-
-    public void OnClick()
-    {
-        FindFirstObjectByType<PropertyTransferController>().SelectProperty(index);
     }
 }

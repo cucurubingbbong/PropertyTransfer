@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using GameCore;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace GameCore
     {
         private readonly Dictionary<string, UIScreen> screens = new();
         private readonly Stack<UIPopup> popupStack = new();
+
+        public event Action<bool> InputLock;
 
         public void Register(UIScreen screen)
         {
@@ -55,6 +58,8 @@ namespace GameCore
             if (screens.TryGetValue(id, out UIScreen screen))
             {
                 screen.Show();
+                InputLock?.Invoke(false);
+                Cursor.lockState = CursorLockMode.None;
                 return;
             }
 
@@ -66,6 +71,8 @@ namespace GameCore
             if (screens.TryGetValue(id, out UIScreen screen))
             {
                 screen.Hide();
+                InputLock?.Invoke(true);
+                Cursor.lockState = CursorLockMode.None;
                 return;
             }
 

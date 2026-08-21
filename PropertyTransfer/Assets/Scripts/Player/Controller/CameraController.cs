@@ -1,3 +1,4 @@
+using GameCore;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -13,12 +14,27 @@ public class CameraController : MonoBehaviour
     [Header("마우스 최대회전 ")]
     [SerializeField] private Vector2 maxPov = new Vector2(55f , 70f);
 
+    /// <summary>
+    /// 카메라 회전 가능 여부
+    /// </summary>
+    [SerializeField] private bool canRotate = true;
+
+    private void OnEnable()
+    {
+        UIManager.Instance.InputLock += SetCanRotate;
+    }
+
+    private void OnDisable()
+    {
+        UIManager.Instance.InputLock -= SetCanRotate;
+    }
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
     private void Update()
     {
+        if(!canRotate) return;
         HandleMouseInput();
     }
 
@@ -36,5 +52,10 @@ public class CameraController : MonoBehaviour
 
         playerCamera.transform.localRotation = Quaternion.Euler(mouseInput.y, 0f, 0f);
         transform.rotation = Quaternion.Euler(0f, mouseInput.x, 0f);
+    }
+
+    private void SetCanRotate(bool flag)
+    {
+        canRotate = flag;
     }
 }

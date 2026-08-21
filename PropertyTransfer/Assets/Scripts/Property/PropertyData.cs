@@ -45,4 +45,12 @@ public class PropertyData
         isStatus = originData.IsStatus;
         value = originData.Value;
     }
+
+    /// <summary>
+    ///  추후 addressable로 변경
+    /// </summary>
+    public void LoadIcon()
+    {
+        propertyIcon = Resources.Load<Sprite>(propertyIconPath);
+    }
 }

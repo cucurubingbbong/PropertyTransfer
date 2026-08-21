@@ -1,3 +1,4 @@
+using GameCore;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -13,6 +14,11 @@ public class PlayerMoveController : MonoBehaviour
     /// 점프량
     /// </summary>
     [SerializeField] private float jumpPower = 1.0f;
+
+    /// <summary>
+    /// 움직일수 있는 상태인지
+    /// </summary>
+    [SerializeField] private bool canMove = true;
 
     [SerializeField] Rigidbody rb;
     private Vector2 currentMoveInput;
@@ -31,6 +37,7 @@ public class PlayerMoveController : MonoBehaviour
         {
             InputManager.Instance.OnMoveInput += SetDirection;
             InputManager.Instance.OnJumpInput += Jump;
+            UIManager.Instance.InputLock += SetCanMove;
         }
     }
 
@@ -40,6 +47,7 @@ public class PlayerMoveController : MonoBehaviour
         {
             InputManager.Instance.OnMoveInput -= SetDirection;
             InputManager.Instance.OnJumpInput -= Jump;
+            UIManager.Instance.InputLock -= SetCanMove;
         }
     }
 
@@ -65,6 +73,12 @@ public class PlayerMoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove) return;
         Move();
+    }
+
+    private void SetCanMove(bool flag)
+    {
+        canMove = flag;
     }
 }
